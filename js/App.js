@@ -1,15 +1,22 @@
+
 const App = {
     data() {
         return {
             showHome: false,
             showCreateForm: false,
             showStudentsList: false,
+            newEtudiant : {
+                nom:"",
+                prenom:"",
+                dateNaissance:"",
+                niveauScolaire:""
+            }
         }
     },
 
 
     mounted(){
-        this.changeState("home")
+        this.changeState("form")
     },
 
 
@@ -46,6 +53,13 @@ const App = {
                 default:
                     this.showHome = true
                     break;
+            }
+        },
+
+        submitStudent(){
+            if (this.newEtudiant.nom ==! "" || this.newEtudiant.prenom ==! "" || this.newEtudiant.dateNaissance ==! "" || this.newEtudiant.niveauScolaire ==! "" ) {
+                addStudent(this.newEtudiant)
+                console.log("Etudiant enregistrer avec success ! ")
             }
         }
     }

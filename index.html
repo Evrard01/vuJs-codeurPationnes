@@ -67,22 +67,22 @@
                                 <div class="d-flex mb-2">
                                     <h5 class="card-title flex-grow-1">Formulaire de création de nouvel étudiant</h5>
                                 </div>
-                                <form class="row g-3">
+                                <form class="row g-3" @submit.prevent="submitStudent">
                                     <div class="col-6">
                                         <label for="inputName" class="form-label">Nom(s)</label>
-                                        <input required type="text" class="form-control" id="inputName">
+                                        <input required v-model="newEtudiant.nom" type="text" class="form-control" id="inputName">
                                     </div>
                                     <div class="col-6">
                                         <label for="inputFirstname" class="form-label">Prénom(s)</label>
-                                        <input required type="text" class="form-control" id="inputFirstname">
+                                        <input required v-model="newEtudiant.prenom" type="text" class="form-control" id="inputFirstname">
                                     </div>
                                     <div class="col-6">
                                         <label for="inputDatenaissance" class="form-label">Date de naissance</label>
-                                        <input required type="date" class="form-control" id="inputDatenaissance">
+                                        <input required v-model="newEtudiant.dateNaissance" type="date" class="form-control" id="inputDatenaissance">
                                     </div>
                                     <div class="col-6">
                                         <label for="selectNiveauScolaire" class="form-label">Niveau scolaire</label>
-                                        <select required id="selectNiveauScolaire" class="form-select">
+                                        <select required v-model="newEtudiant.niveauScolaire" id="selectNiveauScolaire" class="form-select">
                                             <option value=""></option>
                                             <option value="Terminal A">Terminal A</option>
                                             <option value="Terminal D">Terminal D</option>
@@ -152,6 +152,7 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <script src="js/Api.js"></script>
     <script src="js/App.js"></script>
 
 </body>
